@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  nlp-service:
+    build: .
+    # image: registry.linto.ai/saas/linto-platform-nlp-service:latest
+    #image: TBR-image-name
+    #volumes:
+    #  - TBR
+    #env_file: .env
+    ports:
+      - "80:80"
+    environment:
+      CONCURRENCY: "2"
+      KEEP_AUDIO: 1
+      MONGO_HOST: linto-platform-services-broker-nlp-mongo-1
+      SERVICES_BROKER: redis://linto-platform-services-broker-service-broker-1:6379
+      MONGO_PORT: 27017
+      SERVICE_NAME: nlp_service
+      LANGUAGE: fr
+      BROKER_PASS: password
+    networks:
+      - linto-net
+
+networks:
+  linto-net:
+    external: true
+
+
+

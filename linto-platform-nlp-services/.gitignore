@@ -1,0 +1,8 @@
+*__pycache__*
+.env
+.vscode
+.envcontainer
+start_container.sh
+start_mongo.sh
+start_redis.sh
+*.wav
